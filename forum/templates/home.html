@@ -2,5 +2,16 @@
 
 {% block content %}
     {% include 'navbar.html' %}
-    <h1>Home page</h1>
+
+    <hr>
+    {% for room in rooms %}
+        <span>@{{ room.host.username }}</span>
+        <br>
+        <a href="{% url 'forum:room' room.id %}">{{ room.name }}</a>
+        <br>
+        <small>{{ room.topic.name }}</small>
+        <hr>
+    {% endfor %}
+
+
 {% endblock %}
